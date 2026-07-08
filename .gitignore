@@ -42,3 +42,6 @@ next-env.d.ts
 
 # reservation data
 /data/reservations.json
+
+# pm2
+/logs
