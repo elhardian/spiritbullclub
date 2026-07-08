@@ -15,10 +15,8 @@ echo "==> Spirit Bull Club deploy (PM2 · port ${PORT})"
 
 mkdir -p logs
 
-if [[ ! -d node_modules ]]; then
-  echo "==> Installing dependencies..."
-  npm ci
-fi
+echo "==> Installing dependencies..."
+npm ci
 
 echo "==> Building production bundle..."
 npm run build

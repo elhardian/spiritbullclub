@@ -1,7 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // Keep nodemailer as a Node native dependency (SMTP + TLS)
+  serverExternalPackages: ["nodemailer"],
 };
 
 export default nextConfig;
