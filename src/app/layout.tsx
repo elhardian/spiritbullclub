@@ -18,8 +18,9 @@ export const metadata: Metadata = {
   description:
     "Spirit Bull Club — Solana NFT herd. Bid in SOL, trade on Bull Marketplace, and meet Genesis #0001 for Ansem.",
   icons: {
-    icon: "/logo.png",
+    icon: [{ url: "/logo.png", type: "image/png" }],
     apple: "/logo.png",
+    shortcut: "/logo.png",
   },
 };
 
