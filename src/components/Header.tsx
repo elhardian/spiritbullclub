@@ -29,12 +29,6 @@ export function Header() {
         </Link>
 
         <nav className="hidden items-center gap-8 text-sm text-white/45 md:flex">
-          <Link href="/#how-bids" className="transition hover:text-white">
-            How bids work
-          </Link>
-          <Link href="/your-bid" className="transition hover:text-white">
-            Your Bid
-          </Link>
           <Link href="/bids" className="transition hover:text-white">
             Bids
           </Link>
@@ -49,6 +43,9 @@ export function Header() {
           </Link>
           <Link href="/#about" className="transition hover:text-white">
             Lore
+          </Link>
+          <Link href="/your-bid" className="transition hover:text-white">
+            My Bids
           </Link>
         </nav>
 

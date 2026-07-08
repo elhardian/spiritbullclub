@@ -5,6 +5,7 @@ import { FormEvent, useEffect, useState } from "react";
 import { MIN_BID_OFFER_SOL, SEAT_FEE_SOL, HIDDEN_SOL } from "@/data/collection";
 import { useWallet } from "@/context/WalletContext";
 import { formatSol, highestBidLabel, isReservable, minBidAmount } from "@/lib/collection-utils";
+import { BidGreeting } from "@/components/BidGreeting";
 import { BidGuide } from "@/components/BidGuide";
 import { isValidEmail } from "@/lib/validation";
 import type { SpiritBull } from "@/data/collection";
@@ -20,6 +21,11 @@ export function BidModal({ nft, open, onClose }: Props) {
   const [email, setEmail] = useState("");
   const [bidAmount, setBidAmount] = useState("");
   const [status, setStatus] = useState<{ type: "ok" | "err"; message: string } | null>(null);
+  const [success, setSuccess] = useState<{
+    bidOffer: number;
+    signature: string;
+    email: string;
+  } | null>(null);
   const [busy, setBusy] = useState(false);
 
   const live = nft ? getNft(nft.id) ?? nft : null;
@@ -30,6 +36,7 @@ export function BidModal({ nft, open, onClose }: Props) {
     if (!open) return;
     setEmail("");
     setStatus(null);
+    setSuccess(null);
     if (live) setBidAmount(String(minBidAmount(live)));
   }, [open, live?.id, live?.highestBid]);
 
@@ -72,9 +79,10 @@ export function BidModal({ nft, open, onClose }: Props) {
       const result = await placeBid(live!.id, email.trim(), offer);
       if (!result.ok) setStatus({ type: "err", message: result.error });
       else
-        setStatus({
-          type: "ok",
-          message: `Seat booked (${formatSol(SEAT_FEE_SOL)} paid). Bid offer ${formatSol(offer)} — charged only if you win. Tx: ${result.signature.slice(0, 8)}…`,
+        setSuccess({
+          bidOffer: offer,
+          signature: result.signature,
+          email: email.trim(),
         });
     } finally {
       setBusy(false);
@@ -166,7 +174,15 @@ export function BidModal({ nft, open, onClose }: Props) {
             ))}
           </div>
 
-          {canReserve && (
+          {success ? (
+            <BidGreeting
+              bullName={live.name}
+              email={success.email}
+              bidOffer={success.bidOffer}
+              signature={success.signature}
+              onClose={onClose}
+            />
+          ) : canReserve ? (
             <form onSubmit={onReserve} className="mt-auto space-y-3">
               <BidGuide variant="compact" />
               <label className="block text-xs tracking-wide text-white/40 uppercase">
@@ -207,9 +223,9 @@ export function BidModal({ nft, open, onClose }: Props) {
                   : `Place bid · ${formatSol(SEAT_FEE_SOL)} seat`}
               </button>
             </form>
-          )}
+          ) : null}
 
-          {status && (
+          {status && !success && (
             <p
               className={`mt-3 text-sm break-all ${
                 status.type === "ok" ? "text-emerald-400" : "text-rose-400"

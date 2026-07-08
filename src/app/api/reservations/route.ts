@@ -1,4 +1,5 @@
 import { addReservation, listPublicReservations } from "@/lib/reservations-store";
+import { sendBidConfirmationEmail } from "@/lib/email/send-bid-confirmation";
 import { isValidEmail } from "@/lib/validation";
 import { MIN_BID_OFFER_SOL } from "@/data/collection";
 
@@ -35,14 +36,28 @@ export async function POST(request: Request) {
       );
     }
 
+    const nftName = body.nftName ?? `Spirit Bull #${String(body.nftId).padStart(4, "0")}`;
+
     const record = await addReservation({
       email,
       nftId: body.nftId,
-      nftName: body.nftName ?? `Spirit Bull #${String(body.nftId).padStart(4, "0")}`,
+      nftName,
       wallet: body.wallet,
       signature: body.signature,
       bidAmount,
     });
+
+    try {
+      await sendBidConfirmationEmail({
+        email,
+        bullName: nftName,
+        nftId: body.nftId,
+        bidOffer: bidAmount,
+        signature: body.signature,
+      });
+    } catch (err) {
+      console.error("[email] Failed to send bid confirmation:", err);
+    }
 
     return Response.json({ ok: true, id: record.id });
   } catch {
