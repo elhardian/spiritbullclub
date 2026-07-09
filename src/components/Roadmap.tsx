@@ -6,9 +6,9 @@ const PHASES = [
     title: "Genesis Drop",
     status: "Live",
     points: [
-      "Limited collection of 777 Spirit Bulls on Solana — never more",
+      "Limited collection of 777 Spirit Bulls on Solana - never more",
       "7 bulls released every week",
-      "Spirit Bull #0002 — Trencher — airdropped to holders",
+      "Spirit Bull #0002 - Trencher - airdropped to holders",
       "Living showcase with Phantom wallet & 0.1 SOL bids",
     ],
   },
@@ -37,7 +37,7 @@ const PHASES = [
     title: "Ansem Genesis Pass",
     status: "Sacred",
     points: [
-      "Spirit Bull #0001 — the first NFT of the collection — is reserved for Ansem (@blknoiz06)",
+      "Spirit Bull #0001 - the first NFT of the collection - is reserved for Ansem (@blknoiz06)",
       "A ceremonial handoff of the genesis bull with the iconic ANSEM chain",
       "Honoring the spirit that stampedes culture across Solana",
     ],
@@ -53,7 +53,7 @@ export function Roadmap() {
         </p>
         <h2 className="mt-2 text-3xl font-semibold sm:text-4xl">Where the stampede goes</h2>
         <p className="mx-auto mt-3 max-w-2xl text-white/45">
-          777 limited. 7 bulls per week. Bull Marketplace next — NFTs and the coin move as one Solana herd.
+          777 limited. 7 bulls per week. Bull Marketplace next - NFTs and the coin move as one Solana herd.
         </p>
       </div>
 
@@ -91,7 +91,7 @@ export function Roadmap() {
           </p>
           <h3 className="mt-2 text-2xl font-semibold">How the collection ties to the coin</h3>
           <p className="mt-3 text-sm leading-relaxed text-white/50 sm:text-base">
-            Spirit Bull Club lives on Solana — capped at 777, released weekly. Every bull is a key
+            Spirit Bull Club lives on Solana - capped at 777, released weekly. Every bull is a key
             into the coin economy. Holders get priority access on the upcoming Bull Marketplace,
             reduced trading fees paid in the community coin, and staking boosts proportional to bull
             rarity. Bids and sales settle in <span className="text-white">SOL</span>, while the coin
@@ -108,7 +108,7 @@ export function Roadmap() {
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
           <Image
             src="/ansem-bull.png"
-            alt="Spirit Bull #0001 — Ansem (@blknoiz06)"
+            alt="Spirit Bull #0001 - Ansem (@blknoiz06)"
             width={640}
             height={640}
             className="h-full w-full object-cover"
@@ -121,7 +121,7 @@ export function Roadmap() {
             <h3 className="mt-1 text-xl font-semibold text-white">First NFT → Ansem</h3>
             <p className="mt-1 text-sm text-white/55">
               Spirit Bull #0001 passes to{" "}
-              <a href="https://twitter.com/blknoiz06" target="_blank" rel="noopener noreferrer" className="font-semibold text-white underline decoration-white/20 hover:decoration-white/40">Ansem (@blknoiz06)</a> — the opening chapter of the
+              <a href="https://twitter.com/blknoiz06" target="_blank" rel="noopener noreferrer" className="font-semibold text-white underline decoration-white/20 hover:decoration-white/40">Ansem (@blknoiz06)</a> - the opening chapter of the
               herd.
             </p>
           </div>

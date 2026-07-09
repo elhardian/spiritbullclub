@@ -57,9 +57,9 @@ function toPublic(record: ReservationRecord): PublicReservation {
 function dummyRecords(): ReservationRecord[] {
   const now = Date.now();
   return [
-    { nftId: 3, nftName: "Spirit Bull #0003 — Diamond Horn", wallet: DUMMY_WALLETS[0] },
-    { nftId: 4, nftName: "Spirit Bull #0004 — Gold Horn", wallet: DUMMY_WALLETS[1] },
-    { nftId: 5, nftName: "Spirit Bull #0005 — Punk", wallet: DUMMY_WALLETS[2] },
+    { nftId: 3, nftName: "Spirit Bull #0003 - Diamond Horn", wallet: DUMMY_WALLETS[0] },
+    { nftId: 4, nftName: "Spirit Bull #0004 - Gold Horn", wallet: DUMMY_WALLETS[1] },
+    { nftId: 5, nftName: "Spirit Bull #0005 - Punk", wallet: DUMMY_WALLETS[2] },
   ].map((item, i) => ({
     id: `dummy-${i + 1}`,
     email: "hidden@spiritbull.club",
@@ -110,9 +110,9 @@ async function seedDummyReservations() {
 
   const now = Date.now();
   const seeds = [
-    { nftId: 3, nftName: "Spirit Bull #0003 — Diamond Horn", wallet: DUMMY_WALLETS[0] },
-    { nftId: 4, nftName: "Spirit Bull #0004 — Gold Horn", wallet: DUMMY_WALLETS[1] },
-    { nftId: 5, nftName: "Spirit Bull #0005 — Punk", wallet: DUMMY_WALLETS[2] },
+    { nftId: 3, nftName: "Spirit Bull #0003 - Diamond Horn", wallet: DUMMY_WALLETS[0] },
+    { nftId: 4, nftName: "Spirit Bull #0004 - Gold Horn", wallet: DUMMY_WALLETS[1] },
+    { nftId: 5, nftName: "Spirit Bull #0005 - Punk", wallet: DUMMY_WALLETS[2] },
   ];
 
   for (const [i, seed] of seeds.entries()) {

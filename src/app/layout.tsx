@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Spirit Bull Club",
   description:
-    "Spirit Bull Club — Solana NFT herd. Bid in SOL, trade on Bull Marketplace, and meet Genesis #0001 for Ansem.",
+    "Spirit Bull Club - Solana NFT herd. Bid in SOL, trade on Bull Marketplace, and meet Genesis #0001 for Ansem.",
   icons: {
     icon: [{ url: "/logo.png", type: "image/png" }],
     apple: "/logo.png",

@@ -90,7 +90,7 @@ export function BidModal({ nft, open, onClose }: Props) {
   }
 
   return (
-    <div className="fixed inset-0 z-50 flex items-end justify-center p-4 sm:items-center">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
       <button
         type="button"
         aria-label="Close modal backdrop"
@@ -98,9 +98,9 @@ export function BidModal({ nft, open, onClose }: Props) {
         onClick={onClose}
       />
 
-      <div className="relative grid w-full max-w-3xl overflow-hidden rounded-3xl bg-[#080808] sm:grid-cols-2">
+      <div className="relative z-10 grid max-h-[90dvh] w-full max-w-3xl grid-cols-1 overflow-y-auto overscroll-contain rounded-3xl bg-[#080808] sm:grid-cols-2 sm:overflow-hidden">
         <div
-          className="relative min-h-[280px] bg-black p-5 sm:min-h-[380px]"
+          className="relative h-[min(42dvh,340px)] w-full shrink-0 bg-black sm:h-auto sm:min-h-[420px]"
           style={{
             background: `radial-gradient(circle at 50% 30%, ${live.palette.glow}18, #000 65%)`,
           }}
@@ -109,14 +109,14 @@ export function BidModal({ nft, open, onClose }: Props) {
             src={imageSrc}
             alt={live.name}
             fill
-            className="object-cover"
+            className="object-contain object-center p-3 sm:p-4"
             sizes="(max-width: 640px) 100vw, 400px"
           />
         </div>
 
-        <div className="relative z-10 flex flex-col bg-[#0a0a0a] p-5 sm:p-6">
+        <div className="relative flex flex-col bg-[#0a0a0a] p-4 sm:min-h-0 sm:overflow-y-auto sm:p-6">
           <div className="mb-4 flex items-start justify-between gap-3">
-            <div>
+            <div className="min-w-0">
               <p className="font-mono text-[10px] tracking-[0.25em] text-white/40 uppercase">
                 {live.reserved
                   ? "Genesis reserved"
@@ -124,7 +124,7 @@ export function BidModal({ nft, open, onClose }: Props) {
                     ? "Holder airdrop"
                     : "Bid · Solana"}
               </p>
-              <h2 className="text-2xl font-semibold text-white">{live.name}</h2>
+              <h2 className="text-xl font-semibold text-white sm:text-2xl">{live.name}</h2>
               <p className="mt-1 text-sm text-white/50">{live.description}</p>
             </div>
             <button
@@ -151,11 +151,11 @@ export function BidModal({ nft, open, onClose }: Props) {
             </div>
           ) : live.airdropped ? (
             <div className="rounded-xl bg-white/[0.05] px-4 py-3 text-sm text-white/70">
-              <span className="font-semibold text-white">Spirit Bull #0002 — Trencher</span> is
+              <span className="font-semibold text-white">Spirit Bull #0002 - Trencher</span> is
               airdropped to existing Spirit Bull Club holders. Not available for public bidding.
             </div>
           ) : (
-            <div className="mb-4 grid grid-cols-3 gap-2 text-sm">
+            <div className="mb-4 grid grid-cols-3 gap-1.5 text-sm sm:gap-2">
               <Stat label="Buy now" value={HIDDEN_SOL} />
               <Stat label="Highest bid" value={highestBidLabel(live)} />
               <Stat label="Seat fee" value={formatSol(SEAT_FEE_SOL)} />
@@ -258,9 +258,9 @@ export function BidModal({ nft, open, onClose }: Props) {
 
 function Stat({ label, value }: { label: string; value: string }) {
   return (
-    <div className="rounded-xl bg-white/[0.05] px-3 py-2">
-      <p className="text-[10px] tracking-wider text-white/35 uppercase">{label}</p>
-      <p className="font-mono text-white">{value}</p>
+    <div className="rounded-xl bg-white/[0.05] px-2 py-1.5 sm:px-3 sm:py-2">
+      <p className="truncate text-[9px] tracking-wider text-white/35 uppercase sm:text-[10px]">{label}</p>
+      <p className="truncate font-mono text-xs text-white sm:text-sm">{value}</p>
     </div>
   );
 }

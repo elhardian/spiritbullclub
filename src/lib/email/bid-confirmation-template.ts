@@ -30,10 +30,10 @@ export function buildBidConfirmationEmail(data: BidEmailData) {
   const yourBidsUrl = `${data.siteUrl}/your-bid`;
   const collectionUrl = `${data.siteUrl}/collection`;
 
-  const subject = `Welcome to the herd — bid confirmed on ${data.bullName}`;
+  const subject = `Welcome to the herd - bid confirmed on ${data.bullName}`;
 
   const text = [
-    `Gg, ${data.name} — your bid is in.`,
+    `Gg, ${data.name} - your bid is in.`,
     ``,
     `Bull: ${data.bullName} (#${tokenId})`,
     `Seat fee paid: ${seatFee}`,
@@ -42,7 +42,7 @@ export function buildBidConfirmationEmail(data: BidEmailData) {
     ``,
     `Track your bids: ${yourBidsUrl}`,
     ``,
-    `— Spirit Bull Club`,
+    `- Spirit Bull Club`,
   ].join("\n");
 
   const html = `<!DOCTYPE html>
@@ -66,11 +66,11 @@ export function buildBidConfirmationEmail(data: BidEmailData) {
           <tr>
             <td style="padding:32px;">
               <p style="margin:0 0 16px;font-size:18px;line-height:1.5;color:#ffffff;">
-                Gg, <strong>${esc(data.name)}</strong> — your bid is in.
+                Gg, <strong>${esc(data.name)}</strong> - your bid is in.
               </p>
               <p style="margin:0 0 24px;font-size:15px;line-height:1.7;color:rgba(255,255,255,0.62);">
                 Your seat is booked on <strong style="color:#fff;">${esc(data.bullName)}</strong>.
-                The stampede is live — we&apos;ll email you if anything changes on this bull.
+                The stampede is live - we&apos;ll email you if anything changes on this bull.
               </p>
               <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#111111;border:1px solid #222222;border-radius:16px;margin-bottom:24px;">
                 <tr>

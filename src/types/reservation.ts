@@ -1,4 +1,4 @@
-/** Full record — server-side only; email is never exposed to clients. */
+/** Full record - server-side only; email is never exposed to clients. */
 export type ReservationRecord = {
   id: string;
   email: string;
@@ -6,7 +6,7 @@ export type ReservationRecord = {
   nftName: string;
   wallet: string;
   signature: string;
-  /** Bid offer — settled later if the bidder wins. */
+  /** Bid offer - settled later if the bidder wins. */
   bidAmount: number;
   createdAt: string;
 };

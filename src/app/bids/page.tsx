@@ -127,7 +127,7 @@ export default function BidsPage() {
                 <option value="all">All bulls</option>
                 {bullOptions.map(([id, name]) => (
                   <option key={id} value={String(id)}>
-                    #{String(id).padStart(4, "0")} — {name.replace(/^Spirit Bull #\d+ — /, "")}
+                    #{String(id).padStart(4, "0")} - {name.replace(/^Spirit Bull #\d+ - /, "")}
                   </option>
                 ))}
               </select>

@@ -82,7 +82,7 @@ export function HomePage() {
               {active?.name ?? "Loading…"}
             </h2>
             <p className="mt-1 text-sm text-white/40">
-              Drag left or right — active bull holds the center frame
+              Drag left or right - active bull holds the center frame
             </p>
           </div>
 
@@ -133,8 +133,8 @@ export function HomePage() {
             </p>
             <h2 className="mt-2 text-3xl font-semibold">Born of chaos. Bound by Solana.</h2>
             <p className="mx-auto mt-4 max-w-2xl text-white/50">
-              Spirit Bull Club is a limited Solana collection of 777 — never more. Seven bulls release
-              every week. Book a seat for {SEAT_FEE_SOL} SOL and place your bid offer — win price
+              Spirit Bull Club is a limited Solana collection of 777 bulls never more. Seven bulls release
+              every week. Book a seat for {SEAT_FEE_SOL} SOL and place your bid offer to win the price
               charged later. Genesis Bull #0001 belongs to <a
                 href="https://twitter.com/blknoiz06"
                 target="_blank"

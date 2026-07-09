@@ -19,13 +19,13 @@ export function BidGreeting({ bullName, email, bidOffer, signature, onClose }: P
         Welcome to the herd
       </p>
       <h3 className="mt-2 text-xl font-semibold text-white">
-        Gg, {name} — your bid is in.
+        Gg, {name} - your bid is in.
       </h3>
       <p className="mt-2 text-sm leading-relaxed text-white/60">
         You&apos;ve booked a seat on <span className="text-white">{bullName}</span> with a{" "}
-        {formatSol(bidOffer)} offer. {formatSol(SEAT_FEE_SOL)} seat fee paid — your full offer is
+        {formatSol(bidOffer)} offer. {formatSol(SEAT_FEE_SOL)} seat fee paid - your full offer is
         only charged if you win. We&apos;ll reach you at{" "}
-        <span className="text-white/80">{email}</span> — check your inbox for confirmation.
+        <span className="text-white/80">{email}</span> - check your inbox for confirmation.
       </p>
       <p className="mt-3 font-mono text-xs text-white/40">
         Tx{" "}

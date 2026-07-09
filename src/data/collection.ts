@@ -7,7 +7,7 @@ export type Bid = {
 };
 
 export const HIDDEN_SOL = "xx SOL";
-/** Upfront seat booking fee — always charged when placing a bid. */
+/** Upfront seat booking fee - always charged when placing a bid. */
 export const SEAT_FEE_SOL = 0.1;
 /** @deprecated Use SEAT_FEE_SOL */
 export const BID_AMOUNT_SOL = SEAT_FEE_SOL;
@@ -49,7 +49,7 @@ export type SpiritBull = {
 export const COLLECTION: SpiritBull[] = [
   {
     id: 1,
-    name: "Spirit Bull #0001 — Ansem",
+    name: "Spirit Bull #0001 - Ansem",
     description:
       "Genesis of the herd. The first Spirit Bull is reserved for Ansem (@blknoiz06).",
     price: 0,
@@ -67,9 +67,9 @@ export const COLLECTION: SpiritBull[] = [
   },
   {
     id: 2,
-    name: "Spirit Bull #0002 — Trencher",
+    name: "Spirit Bull #0002 - Trencher",
     description:
-      "The trench warrior — airdropped to Spirit Bull Club holders. Not open for public reservation.",
+      "The trench warrior - airdropped to Spirit Bull Club holders. Not open for public reservation.",
     price: 0,
     highestBid: 0,
     airdropped: true,
@@ -85,7 +85,7 @@ export const COLLECTION: SpiritBull[] = [
   },
   {
     id: 3,
-    name: "Spirit Bull #0003 — Diamond Horn",
+    name: "Spirit Bull #0003 - Diamond Horn",
     description: "Ice-cold alpha draped in crystal horns and midnight knit.",
     price: 0,
     highestBid: 0,
@@ -96,7 +96,7 @@ export const COLLECTION: SpiritBull[] = [
   },
   {
     id: 4,
-    name: "Spirit Bull #0004 — Gold Horn",
+    name: "Spirit Bull #0004 - Gold Horn",
     description: "Solar titan with molten horns and a ribbed black turtleneck.",
     price: 0,
     highestBid: 0,
@@ -107,7 +107,7 @@ export const COLLECTION: SpiritBull[] = [
   },
   {
     id: 5,
-    name: "Spirit Bull #0005 — Punk",
+    name: "Spirit Bull #0005 - Punk",
     description: "Spiked leather rebel with geometric chrome horns and a mohawk.",
     price: 0,
     highestBid: 0,

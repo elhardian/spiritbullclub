@@ -42,7 +42,7 @@ export async function sendBidConfirmationEmail(input: {
 }) {
   const config = getSmtpConfig();
   if (!config) {
-    console.warn("[email] SMTP not configured — skipping bid confirmation email");
+    console.warn("[email] SMTP not configured - skipping bid confirmation email");
     return { sent: false as const };
   }
 
