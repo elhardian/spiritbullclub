@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
+import { SOCIAL_LINKS, SocialIcon } from "@/components/SocialLinks";
 import { formatAddress, useWallet } from "@/context/WalletContext";
 
 const NAV_LINKS = [
@@ -76,6 +77,20 @@ export function Header() {
         </nav>
 
         <div className="flex shrink-0 items-center gap-2">
+          <div className="hidden items-center gap-1 sm:flex">
+            {SOCIAL_LINKS.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={link.ariaLabel}
+                className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/[0.06] text-white/60 transition hover:bg-white/[0.12] hover:text-white"
+              >
+                <SocialIcon name={link.label} />
+              </a>
+            ))}
+          </div>
           {isConnected && address ? (
             <>
               <div className="hidden rounded-full bg-white/[0.06] px-3 py-1.5 font-mono text-xs text-white/75 sm:block">
@@ -160,6 +175,22 @@ export function Header() {
                   </li>
                 ))}
               </ul>
+              <div className="mt-6 flex gap-2">
+                {SOCIAL_LINKS.map((link) => (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={link.ariaLabel}
+                    onClick={closeMenu}
+                    className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl bg-white/[0.04] px-3 py-3 text-sm font-medium text-white transition hover:bg-white/[0.1]"
+                  >
+                    <SocialIcon name={link.label} />
+                    {link.label}
+                  </a>
+                ))}
+              </div>
               {isConnected && address && (
                 <button
                   type="button"

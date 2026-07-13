@@ -23,7 +23,16 @@ export function ContractAddress() {
     }
   }, []);
 
-  if (!CA) return null;
+  if (!CA) {
+    return (
+      <div className="mt-4 flex justify-center">
+        <div className="inline-flex items-center gap-2 rounded-full bg-white/[0.06] px-4 py-2 font-mono text-sm text-white/55">
+          <span className="text-[10px] tracking-[0.2em] text-white/40 uppercase">CA</span>
+          <span>Coming soon</span>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="mt-4 flex justify-center">

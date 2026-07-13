@@ -23,6 +23,8 @@ export function Carousel3D({ items, activeIndex, onChange, onSelect }: Props) {
   const dragStartX = useRef(0);
   const dragDelta = useRef(0);
   const didDrag = useRef(false);
+  const pointerActive = useRef(false);
+  const isDraggingRef = useRef(false);
   const activeRef = useRef(activeIndex);
 
   useEffect(() => {
@@ -55,36 +57,49 @@ export function Carousel3D({ items, activeIndex, onChange, onSelect }: Props) {
 
   function onPointerDown(e: React.PointerEvent) {
     if (e.button !== 0) return;
-    setIsDragging(true);
+    pointerActive.current = true;
     didDrag.current = false;
     dragStartX.current = e.clientX;
     dragDelta.current = 0;
-    (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
   }
 
   function onPointerMove(e: React.PointerEvent) {
-    if (!isDragging) return;
+    if (!pointerActive.current) return;
+
     dragDelta.current = e.clientX - dragStartX.current;
-    if (Math.abs(dragDelta.current) > 8) didDrag.current = true;
+    if (!isDraggingRef.current && Math.abs(dragDelta.current) > 8) {
+      isDraggingRef.current = true;
+      setIsDragging(true);
+      didDrag.current = true;
+      (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
+    }
   }
 
   function endDrag(e: React.PointerEvent) {
-    if (!isDragging) return;
-    setIsDragging(false);
-    try {
-      (e.currentTarget as HTMLElement).releasePointerCapture(e.pointerId);
-    } catch {
-      /* already released */
+    const wasDragging = isDraggingRef.current;
+    pointerActive.current = false;
+
+    if (wasDragging) {
+      isDraggingRef.current = false;
+      setIsDragging(false);
+      try {
+        (e.currentTarget as HTMLElement).releasePointerCapture(e.pointerId);
+      } catch {
+        /* already released */
+      }
+
+      const threshold = 60;
+      if (dragDelta.current <= -threshold) next();
+      else if (dragDelta.current >= threshold) prev();
     }
 
-    const threshold = 60;
-    if (dragDelta.current <= -threshold) next();
-    else if (dragDelta.current >= threshold) prev();
+    dragDelta.current = 0;
 
-    // Prevent click-open right after a swipe
-    window.setTimeout(() => {
-      didDrag.current = false;
-    }, 50);
+    if (wasDragging || didDrag.current) {
+      window.setTimeout(() => {
+        didDrag.current = false;
+      }, 50);
+    }
   }
 
   return (
@@ -144,7 +159,7 @@ export function Carousel3D({ items, activeIndex, onChange, onSelect }: Props) {
                     ? "none"
                     : "transform 700ms cubic-bezier(0.22, 1, 0.36, 1), opacity 500ms ease",
                   transformStyle: "preserve-3d",
-                  pointerEvents: abs > 2 ? "none" : "auto",
+                  pointerEvents: !isActive ? "none" : abs > 2 ? "none" : "auto",
                 }}
               >
                 <div

@@ -9,6 +9,7 @@ import { Carousel3D } from "@/components/Carousel3D";
 import { ContractAddress } from "@/components/ContractAddress";
 import { Header } from "@/components/Header";
 import { Roadmap } from "@/components/Roadmap";
+import { SOCIAL_LINKS, SocialIcon } from "@/components/SocialLinks";
 import { useWallet } from "@/context/WalletContext";
 import { COLLECTION_STATS, HIDDEN_SOL, SEAT_FEE_SOL } from "@/data/collection";
 import type { SpiritBull } from "@/data/collection";
@@ -148,8 +149,24 @@ export function HomePage() {
         </section>
       </main>
 
-      <footer className="relative z-10 border-t border-white/[0.06] py-6 text-center font-mono text-xs text-white/30">
-        © {new Date().getFullYear()} Spirit Bull Club · 777 Limited · Weekly Drops · Solana
+      <footer className="relative z-10 border-t border-white/[0.06] py-6 text-center">
+        <div className="mb-3 flex items-center justify-center gap-2">
+          {SOCIAL_LINKS.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={link.ariaLabel}
+              className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/[0.06] text-white/55 transition hover:bg-white/[0.12] hover:text-white"
+            >
+              <SocialIcon name={link.label} />
+            </a>
+          ))}
+        </div>
+        <p className="font-mono text-xs text-white/30">
+          © {new Date().getFullYear()} Spirit Bull Club · 777 Limited · Weekly Drops · Solana
+        </p>
       </footer>
 
       <BidModal nft={selected} open={modalOpen} onClose={() => setModalOpen(false)} />
